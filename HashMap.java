@@ -28,8 +28,9 @@ class HashMap<K, V> {
      
  
     @SuppressWarnings("unchecked")
-    public HashMap(){
-       table = new Entry[capacity];
+    public HashMap(int capacity){
+    	capacity_ = capacity;
+       table = new Entry[capacity_];
     }
  
    
