@@ -1,51 +1,21 @@
- /**
- * @author AnkitMittal, JavaMadeSoEasy.com
- * Copyright (c), AnkitMittal . All Contents are copyrighted and must not be
- * reproduced in any form.
- * This class provides custom implementation of HashMap(without using java api's)-
- * which allows us to store data in key-value pair form.
- * insertion order of key-value pairs is not maintained.
- * @param <K>
- * @param <V>
- * @see http://www.javamadesoeasy.com/2015/02/hashmap-custom-implementation.html
+import java.util.Collection;
+import java.util.Map;
+import java.util.Set;
+
+/**
+ * * @see http://www.javamadesoeasy.com/2015/02/hashmap-custom-implementation.html
  */
 class HashMap<K, V> {
      
-     private Entry<K,V>[] table;   //Array of Entry.
-     private int capacity= 4;  //Initial capacity of HashMap
-     
-     static class Entry<K, V> {
-         K key;
-         V value;
-         Entry<K,V> next;
-     
-         public Entry(K key, V value, Entry<K,V> next){
-             this.key = key;
-             this.value = value;
-             this.next = next;
-         }
-     }
-     
- 
+     Entry<K,V>[] table;   //Array of Entry.
+     private int capacity_;  //Initial capacity_ of HashMap
+   
     @SuppressWarnings("unchecked")
     public HashMap(int capacity){
     	capacity_ = capacity;
        table = new Entry[capacity_];
     }
- 
-   
- 
-    /**
-     * Method allows you put key-value pair in HashMap.
-     * If the map already contains a mapping for the key, the old value is replaced.
-     * Note: method does not allows you to put null key though it allows null values.
-     * Implementation allows you to put custom objects as a key as well.
-     * Key Features: implementation provides you with following features:-
-     *     >provide complete functionality how to override equals method.
-     *  >provide complete functionality how to override hashCode method.
-     * @param newKey
-     * @param data
-     */
+       
     public void put(K newKey, V data){
        if(newKey==null)
            return;    //does not allow to store null.
@@ -99,8 +69,7 @@ class HashMap<K, V> {
          }         
          return null;   //returns null if key is not found.
         }
-    }
- 
+    } 
  
     /**
      * Method removes key-value pair from HashMap.
@@ -144,11 +113,11 @@ class HashMap<K, V> {
      */
     public void display(){
        
-       for(int i=0;i<capacity;i++){
+       for(int i=0;i<capacity_;i++){
            if(table[i]!=null){
                   Entry<K, V> entry=table[i];
                   while(entry!=null){
-                        System.out.print("{"+entry.key+"="+entry.value+"}" +" ");
+                        System.out.print("{"+entry.key+"="+entry.value+"}\n");
                         entry=entry.next;
                   }
            }
@@ -163,9 +132,47 @@ class HashMap<K, V> {
      * @param key
      */
     private int hash(K key){
-        return Math.abs(key.hashCode()) % capacity;
+        return Math.abs(key.hashCode()) % capacity_;
     }
+    
+    public void clear() {
+		// TODO Auto-generated method stub
+		
+	}
+	
+	public boolean containsKey(Object arg0) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+	
+	public boolean containsValue(Object value) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+	
+	public Set entrySet() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+	public boolean isEmpty() {
+		// TODO Auto-generated method stub
+		return false;
+	}	
+	
+	public void putAll(Map m) {
+		// TODO Auto-generated method stub
+		
+	}
+		
+	public int size() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+	
+	public Collection values() {
+		// TODO Auto-generated method stub
+		return null;
+	}
  
 }
- 
- 
