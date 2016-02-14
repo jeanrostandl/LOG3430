@@ -1,0 +1,13 @@
+import java.io.FileReader;
+import java.util.Scanner;
+
+public class Main {
+	
+	public static void main(String[] args)
+	{			
+		HashTable table = new HashTable("donnees.txt", "donnees.txt", 2, 6, 11);
+		table.returnFileContent().display();;
+		//table.saveHashMapContent();		
+	}
+
+}
